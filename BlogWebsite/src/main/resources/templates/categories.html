@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+<section class=" d-flex justify-content-center align-items-center">
+<div class="text-center">
+
+<p>This is categories page</p>
+<table class="table">
+				<thead class="thead-light">
+					<tr>
+						<th scope="col">SN</th>
+						<th scope="col">Category Name</th>
+						<th scope="col">Delete</th>
+						<th scope="col">Update</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr th:each="category, s : ${categories}">
+						<th scope="row" th:text="${s.index + 1}">1</th>
+						<td th:text="${category.name}">Larry</td>
+
+						<td><a href=""
+							th:href="@{/admin/categories/delete/{id}(id=${category.id})}"
+							class="btn btn-danger deletehover">Delete</a></td>
+						<td><a href=""
+							th:href="@{/admin/categories/update/{id}(id=${category.id})}"
+							class="btn btn-warning updatehover">Update</a></td>
+
+					</tr>
+				</tbody>
+			</table>
+
+
+</div>
+</section>
+	
+</body>
+</html>

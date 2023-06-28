@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+	<section class=" d-flex justify-content-center align-items-center">
+		<div class="text-center">
+
+			<p>This is registration page</p>
+		</div>
+
+				<div class="col-md-6 offset-md-3 p-4">
+					<div class="my-card registerForm">
+
+
+
+						<h1 class="text-center text-black  ">Register Here</h1>
+
+						<form novalidate th:action="@{/register}" method="post"
+							th:object="${user}">
+
+							<!-- Name Field -->
+
+							<div class="form-group">
+								<div class="form-group">
+									<label for="firstName">First Name</label> <input type="text"
+										name="name" id="firstName" required
+										placeholder="Your Firstname"
+										class="form-control form-control-lg">
+								</div>
+
+
+
+
+							</div>
+
+							
+
+							<!-- Email Field -->
+
+							<div class="form-group">
+								<label for="email">Email address</label> <input type="email"
+									class="form-control form-control-lg" required minlength="6"
+									placeholder="Email" name="email" id="email"
+									aria-describedby="emailHelp"> <small id="emailHelp"
+									class="form-text text-muted">We'll never share your
+									email with anyone else.</small>
+							</div>
+
+							<!-- About Field -->
+							<div class="form-group">
+								<label for="password">Password</label> <input type="password"
+									class="form-control form-control-lg" required
+									placeholder="Password" name="password" id="password">
+							</div>
+
+							<input type="submit" value="Register" class="button"> 
+							<!-- <span
+								style="margin-top: 10px">Already have an account <a
+								class="linkControl" href="./login.html" th:href="@{/login}">Login
+									here</a></span>  -->
+						</form>
+					</div>
+				</div>
+	</section>
+</body>
+</html>

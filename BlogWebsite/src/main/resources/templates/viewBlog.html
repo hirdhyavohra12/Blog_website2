@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Show Blog</title>
+</head>
+<body>
+	<section class=" d-flex justify-content-center align-items-center">
+		<div class="text-center">
+			<h1 class="font-weight-bold">Write your Thoughts</h1>
+			<p>This is particular blog page</p>
+
+		</div>
+		
+			<div class="container mt-5">
+				<div class="row">
+					<div class="col-sm-5 d-flex justify-content-center">
+						<img class="mt-5" height="300px" width="300px" src=""
+							th:src="@{${'/blogImages/' + blogs.image}}" alt="">
+					</div>
+					<div class="col-sm-7 mt-5">
+						<h2 th:text="${blogs.name}"></h2>
+						<p th:text="${blogs.category.name}"></p>
+						
+						<p th:text="${blogs.description}"></p>
+						
+					</div>
+				</div>
+			</div>
+	</section>
+
+</body>
+
+</html>

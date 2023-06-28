@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+<section class=" d-flex justify-content-center align-items-center">
+<div class="text-center">
+
+<p>Categories add page</p>
+<form th:action="@{/admin/categories/add}" method="post" th:object="${category}">
+<input type="hidden" name="id" th:field="*{id}">
+<input type="text" placeholder="Enter category name" name="name" required th:field="*{name}">
+<button type="submit">Submit</button>
+
+</form>
+
+
+</div>

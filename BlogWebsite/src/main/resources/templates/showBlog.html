@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Show Blog</title>
+</head>
+<body>
+<section class=" d-flex justify-content-center align-items-center">
+<div class="text-center">
+<h1 class="font-weight-bold">Write your Thoughts</h1>
+<p>Listed below are all the blogs that you can see and admire the thoughts</p>
+
+
+<div class="container" style="margin-top: 30px">
+    <div class="row">
+        <div class="col-sm-3">
+            <h4>Categories</h4>
+            <ul class="list-group" >
+                <a th:href="@{/admin}"><li class="list-group-item">All Products</li></a>
+                <a href="" th:each="category, s : ${categories}"
+                   th:href="@{/blogs/category/{id}(id=${category.id})}">
+                   <li class="list-group-item" th:text="${category.name}"></li></a>
+
+            </ul>
+        </div>
+        <div class="col-sm-9">
+            <div class="card" style="margin-top: 20px" th:each="blog : ${blogs}">
+                <div class="row no-gutters">
+                    <div class="col-sm-5 d-flex justify-content-center">
+                        <img class="shopHeight" height="150px" width="150px" th:src="@{${'/blogImages/' + blog.image}}" th:alt="${blog.name}">
+                    </div>
+                    <div class="col-sm-7 d-flex justify-content-center">
+                        <div class="card-body" style="color:black">
+                            <h5 class="card-title" th:text="${blog.name}"></h5>
+                           
+                            <p th:text="${blog.description}" >Suresh Dasari is a founder and technical lead developer in tutlane.</p>
+                             <a href="#" th:href="@{/blog/viewblog/{id}(id=${blog.id})}" class="button">View Blog</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</section>
+	
+</body>
+</html>

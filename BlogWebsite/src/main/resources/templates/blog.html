@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+	<section class=" d-flex justify-content-center align-items-center">
+		<div class="text-center">
+			<p>This is blog page</p>
+
+
+			<table class="table">
+				<thead class="thead-light">
+					<tr>
+						<th scope="col">SN</th>
+						<th scope="col">Blog Name</th>
+						<th scope="col">Category</th>
+						<th scope="col">Preview</th>
+						 <th scope="col">Delete</th>
+						<th scope="col">Update</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr th:each="blog, s : ${blogs}">
+						<th scope="row" th:text="${s.index + 1}">1</th>
+						<td th:text="${blog.name}">Larry</td>
+						<td th:text="${blog.category.name}">Larry</td>
+						<td><img src="" height="100px" width="100px"
+							th:src="@{${'/blogImages/' + blog.image}}"></td>
+
+						 <td><a href=""
+							th:href="@{/admin/blog/delete/{id}(id=${blog.id})}"
+							class="btn btn-danger deletehover">Delete</a></td>
+						<td><a href=""
+							th:href="@{/admin/blog/update/{id}(id=${blog.id})}"
+							class="btn btn-warning updatehover">Update</a></td>
+
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+
+	</section>
+
+</body>
+
+</html>
